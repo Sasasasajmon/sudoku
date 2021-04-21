@@ -14,7 +14,10 @@ class Cell(pygame.sprite.Sprite):
         self.last_number_displayed = None
 
     def update(self, window, font, v):
-        self.draw_digit(window, font, v)
+        if self.last_number_displayed is None:
+            self.draw_digit(window, font, v)
+        else:
+            self.rect = self.image.get_rect()
 
     def draw_digit(self, window, font, v):
         if v:

@@ -15,6 +15,7 @@ def main():
 
     game_grid = GUI.GameGrid(board, 9, 9, WINDOW_SIZE, WINDOW_SIZE)
     game_grid.draw_grid(window)
+
     key = None
     game_run = True
 

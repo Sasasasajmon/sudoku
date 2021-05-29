@@ -51,14 +51,14 @@ class GameGrid:
         if self.cells[row][col].value == 0:
             self.cells[row][col].set_value(value)
 
-            if solver.validate_new_value(self.arr_grid, value, row, col):
-                self.update_arr_grid()
-                return True
-            else:
-                self.cells[row][col].set_value(0)
-                self.cells[row][col].set_temp_value(0)
-                self.update_arr_grid()
-                return False
+            # if solver.validate_new_value(self.arr_grid, value, row, col):
+            #     self.update_arr_grid()
+            #     return True
+            # else:
+            #     self.cells[row][col].set_value(0)
+            #     self.cells[row][col].set_temp_value(0)
+            #     self.update_arr_grid()
+            #     return False
 
     def remove_value(self):
         row, col = self.curr_selected
@@ -99,7 +99,7 @@ class Cell:
         y = self.row * CELL_SIZE
 
         if self.value != 0:
-            text = font.render(str(self.value), True, BLACK)
+            text = font.render(str(self.value), True, BLACK) if self.is_fixed else font.render(str(self.value), True, RED)
             win.blit(text, (x + (CELL_SIZE / 2 - text.get_width() / 2), y + (CELL_SIZE / 2 - text.get_height() / 2)))
         elif self.temp != 0:
             text = font.render(str(self.temp), True, GREY)

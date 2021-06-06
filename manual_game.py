@@ -7,7 +7,7 @@ example_sudoku = '00430020900500900107006004300600208719000740005008300060000010
 example_sudoku_solution = '864371259325849761971265843436192587198657432257483916689734125713528694542916378'
 
 
-def main():
+def run():
     pygame.font.init()
     window = pygame.display.set_mode([WINDOW_SIZE, WINDOW_SIZE])
     pygame.display.set_caption("Sudoku")
@@ -67,5 +67,5 @@ def main():
         pygame.display.update()
 
 
-main()
+run()
 pygame.quit()

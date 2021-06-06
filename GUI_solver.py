@@ -10,10 +10,9 @@ def solve_sudoku(sudoku_board):
     empty_cell_coords = solver.get_next_empty_cell(sudoku_board)
 
     if empty_cell_coords is None:
+        # print(sudoku_board)
         return True
-    else:
-        print(empty_cell_coords[0], empty_cell_coords[1])
-        game_grid.select_cell(empty_cell_coords[0], empty_cell_coords[1])
+    game_grid.select_cell(empty_cell_coords[0], empty_cell_coords[1])
 
     for digit in range(1, 10):
         is_digit_valid = solver.validate_new_value(sudoku_board, digit, *empty_cell_coords)
@@ -46,7 +45,9 @@ board = solver.get_sudoku_board(example_sudoku)
 game_grid = GUI.GameGrid(board, 9, 9, WINDOW_SIZE, WINDOW_SIZE)
 game_grid.draw_grid(window)
 
-game_run = True
+game_run = False
+
+solve_sudoku(board)
 
 while game_run:
     solve_sudoku(board)

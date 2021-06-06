@@ -54,9 +54,11 @@ if __name__ == '__main__':
     example_sudoku = '004300209005009001070060043006002087190007400050083000600000105003508690042910300'
     example_sudoku_solution = '864371259325849761971265843436192587198657432257483916689734125713528694542916378'
 
+    DEBUG_COUNTER = 0
+
     sudoku = get_sudoku_board(example_sudoku)
     true_solution = get_sudoku_board(example_sudoku_solution)
     print(sudoku)
     print('--------------------------')
     solved_board = solve_sudoku(sudoku)
-
+    assert((sudoku == true_solution).all())
